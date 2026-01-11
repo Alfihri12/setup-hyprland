@@ -1,0 +1,13 @@
+# ❌ ignore semua
+*
+
+# ✅ izinkan folder yang kita mau
+!hypr/
+!quickshell/
+
+# ✅ izinkan semua isi di dalamnya
+!hypr/**
+!quickshell/**
+
+# ✅ jangan ignore .gitignore sendiri
+!.gitignore
