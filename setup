@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# setup yay
+sudo pacman -S --needed git base-devel bash-completion
+mkdir -p "$HOME/clones"
+cd "$HOME/clones"
+
+if [ ! -d yay ]; then
+    git clone https://aur.archlinux.org/yay.git
+fi
+
+cd yay
+makepkg -si --noconfirm
+cd ~
+
+# core packages
+sudo pacman -S --needed \
+    hyprland kitty wofi mpv mpvpaper \
+    ntfs-3g brightnessctl \
+    wayland wayland-protocols \
+    qt5-wayland qt6-wayland \
+    xdg-desktop-portal-hyprland \
+    networkmanager mesa seatd
+
+yay -S --noconfirm quickshell google-chrome
+
+sudo pacman -S --needed \
+    pipewire pipewire-alsa pipewire-pulse wireplumber
+
+sudo pacman -S --needed \
+    thunar tumbler thunar-archive-plugin thunar-volman \
+    file-roller ffmpegthumbnailer imagemagick unrar gvfs 7zip
+
+sudo pacman -S --needed \
+    noto-fonts noto-fonts-cjk noto-fonts-emoji \
+    ttf-dejavu ttf-jetbrains-mono ttf-liberation
+
+sudo systemctl enable --now NetworkManager
+
+mkdir -p ~/.config
+cp -r ./hypr ./quickshell ~/.config/

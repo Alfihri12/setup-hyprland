@@ -15,7 +15,7 @@ PanelWindow {
         id: clock
         anchors.centerIn: parent
         font.family: "monospace"
-    
+
         Process {
             // give the process object an id so we can talk
             // about it from the timer

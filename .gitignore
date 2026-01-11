@@ -5,11 +5,13 @@
 !hypr/
 !quickshell/
 !README.md
+!setup
 
 # ✅ izinkan semua isi di dalamnya
 !hypr/**
 !quickshell/**
 !README.md
+!setup
 
 # ✅ jangan ignore .gitignore sendiri
 !.gitignore
