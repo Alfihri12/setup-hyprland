@@ -4,10 +4,12 @@
 # ✅ izinkan folder yang kita mau
 !hypr/
 !quickshell/
+!README.md
 
 # ✅ izinkan semua isi di dalamnya
 !hypr/**
 !quickshell/**
+!README.md
 
 # ✅ jangan ignore .gitignore sendiri
 !.gitignore
