@@ -19,11 +19,11 @@ sudo pacman -S --needed \
     wayland wayland-protocols mesa seatd \
     hyprland kitty wofi wl-clipboard cliphist \
     qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
-    networkmanager brightnessctl ntfs-3g mpv mpvpaper polkit
+    networkmanager brightnessctl ntfs-3g polkit
 sudo systemctl enable --now NetworkManager
 
 # google-chrome
-yay -S --noconfirm quickshell google-chrome
+yay -S --noconfirm quickshell google-chrome mpv mpvpaper
 
 # audio
 sudo pacman -S --needed \
@@ -57,12 +57,11 @@ fc-cache -fv
 
 # utilitys
 sudo pacman -S --needed \
-    btop \         # system monitor
-    fastfetch \    # system info + flex
-    lm_sensors \   # hardware monitoring
-    reflector \    # update mirrorlist
-    grim slurp swappy \    # screenshots
-    wf-recorder \        # screen recording
-    mako libnotify \         # notifications
-    libreoffice \          # office suite
-
+    btop \                  # system monitor
+    fastfetch \             # system info
+    lm_sensors \            # hardware sensors
+    reflector \             # mirrorlist updater
+    grim slurp swappy \     # screenshot tools
+    wf-recorder \           # screen recorder
+    mako libnotify \        # notification
+    libreoffice-fresh       # office suite
