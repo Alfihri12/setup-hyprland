@@ -16,27 +16,53 @@ cd ~
 
 # core packages
 sudo pacman -S --needed \
-    hyprland kitty wofi mpv mpvpaper \
-    ntfs-3g brightnessctl \
-    wayland wayland-protocols \
-    qt5-wayland qt6-wayland \
-    xdg-desktop-portal-hyprland \
-    networkmanager mesa seatd
-
-yay -S --noconfirm quickshell google-chrome
-
-sudo pacman -S --needed \
-    pipewire pipewire-alsa pipewire-pulse wireplumber
-
-sudo pacman -S --needed \
-    thunar tumbler thunar-archive-plugin thunar-volman \
-    file-roller ffmpegthumbnailer imagemagick unrar gvfs 7zip
-
-sudo pacman -S --needed \
-    noto-fonts noto-fonts-cjk noto-fonts-emoji \
-    ttf-dejavu ttf-jetbrains-mono ttf-liberation
-
+    wayland wayland-protocols mesa seatd \
+    hyprland kitty wofi wl-clipboard cliphist \
+    qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
+    networkmanager brightnessctl ntfs-3g mpv mpvpaper polkit
 sudo systemctl enable --now NetworkManager
 
-mkdir -p ~/.config
-cp -r ./hypr ./quickshell ~/.config/
+# google-chrome
+yay -S --noconfirm quickshell google-chrome
+
+# audio
+sudo pacman -S --needed \
+    pipewire pipewire-alsa pipewire-pulse pipewire-jack \
+    wireplumber helvum pipewire-audio noise-suppression-for-voice easyeffects
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+
+
+# bluetooth
+sudo pacman -S --needed \
+    bluez bluez-utils blueman
+sudo systemctl enable --now bluetooth
+
+# file manager
+sudo pacman -S --needed \
+    thunar thunar-volman tumbler gvfs \
+    ffmpegthumbnailer poppler-glib libgsf \
+    file-roller xarchiver unzip p7zip unrar tar \
+    gvfs-mtp gvfs-smb gvfs-gphoto2 \
+    thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
+    udiskie udisks2
+
+# fonts
+sudo pacman -S --needed \
+    font-manager \
+    freetype2 fontconfig harfbuzz \
+    ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji \
+    ttf-jetbrains-mono ttf-fira-code ttf-ibm-plex \
+    inter-font ttf-roboto ttf-opensans
+fc-cache -fv
+
+# utilitys
+sudo pacman -S --needed \
+    btop \         # system monitor
+    fastfetch \    # system info + flex
+    lm_sensors \   # hardware monitoring
+    reflector \    # update mirrorlist
+    grim slurp swappy \    # screenshots
+    wf-recorder \        # screen recording
+    mako libnotify \         # notifications
+    libreoffice \          # office suite
+
