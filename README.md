@@ -9,6 +9,8 @@ My personal Hyprland rice 🍚✨
 
 ## Install
 ```bash
-git clone https://github.com/Alfihri12/setup-hyprland.git 
+git clone https://github.com/Alfihri12/setup-hyprland.git
+
+
 - Install manual applikasi yang di butuhkan di setup
 - Copy file hypr, mako, quicshell ke ~/.config
